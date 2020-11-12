@@ -1,11 +1,24 @@
 import React from 'react'
+import Navbar from './components/Navbar'
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import SearchPage from './pages/SearchPage'
+import MovieDetailPage from './pages/MovieDetailPage'
 
+
+//button colors --> #81c784
+//background colors --> #ff8f00
 function App() {
   return (
-    <div className="App">
-      <h1>what up</h1>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Switch>
+          <Route path="/" exact component={SearchPage}/>
+          <Route path="/moviedetail/:id" component={MovieDetailPage}/>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

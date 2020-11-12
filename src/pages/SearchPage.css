@@ -1,0 +1,38 @@
+.SearchPage{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 70px 100px 1fr;
+    grid-template-areas: 
+    "."
+    "search"
+    "preview";
+    height: fit-content;
+}
+
+.search-container {
+    grid-area: search;
+    min-height: 100px;
+    max-height: 150px;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: #ff4444;
+    border-radius: 0 0 50% 50%;
+ 
+
+}
+.search-box {
+    width: 50%;
+    min-width: 250px;
+
+}
+.preview-card-wrapper {
+    grid-area: preview;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin:0 10%;
+    height: fit-content;
+    min-height: 100%;
+}
