@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import './SearchPage.css';
 import InputGroup from 'react-bootstrap/InputGroup'
 import Button from 'react-bootstrap/Button'
@@ -10,11 +10,7 @@ function SearchPage() {
 
   //API to request --> https://api.themoviedb.org/3/search/movie?api_key=f3e744226b13ef39764f0e35686bff5e&language=en-US&query=Batman&page=1&include_adult=false
   //Handle getting data from API
-  // useEffect(() => {
-
-  //   fetchItems();
-  // }, []);
-
+  
   async function fetchItems() {
     const data = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=f3e744226b13ef39764f0e35686bff5e&language=en-US&query=${userInput}&page=1&include_adult=false`);
     const itemsData = await data.json();
@@ -32,7 +28,10 @@ function SearchPage() {
     setUserInput(event.target.value);
     if (userInput !== '') {
       fetchItems();
+    } else {
+      setSearchResult([]);
     }
+
     console.log(userInput)
   }
 

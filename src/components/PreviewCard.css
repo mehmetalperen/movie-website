@@ -7,7 +7,7 @@
     padding: 10px;
     margin: 10px 2%;
     min-height: 500px;
-    width: 300px;
+    width: 280px;
     padding: 10px 5px;
 }
 .PreviewCard:hover {
@@ -21,7 +21,7 @@
     justify-content: space-evenly;
 }
 
-img {
+.previewCard-contanier img {
     height: auto;
     max-width: 150px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
