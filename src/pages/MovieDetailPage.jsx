@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React, {PureComponent, useEffect, useState} from 'react'
 import './MovieDetailPage.css';
-
+import Navbar from '../components/Navbar';
+import CirledPic from '../components/CirledPic'
 //Handle get detail data
 function MovieDetailPage({match}) {
 
@@ -19,10 +20,15 @@ function MovieDetailPage({match}) {
       imdbScore: itemData.vote_average,
       realesdDate: itemData.release_date,
       spokenLang: itemData.spoken_languages,
-      genres: itemData.genres
+      genres: itemData.genres,
+      production: itemData.production_companies,
+      homepageURL: itemData.homepage,
+      runtime: itemData.runtime
     });
     console.log(itemData);
   }
+
+
   
   const [movieDetail, setMovieDetail] = useState({
     id: '',
@@ -32,61 +38,64 @@ function MovieDetailPage({match}) {
     imdbScore: '',
     realesdDate: '',
     spokenLang: [],
-    genres: []
+    genres: [],
+    production: [],
+    homepageURL: '',
+    runtime: ''
   });
 
-  console.log(match.params.id)
+  console.log(movieDetail.production)
     return (
     <div className="MovieDetailPage">
-      <div className="movie-detail-info-wrapper">
-        {/* clicked --> take user to its homepage */}
-        <img src={`https://image.tmdb.org/t/p/original${movieDetail.imgURL}`} alt="" className="movie-poster"/>
-        <div className="movie-detail-container">
-          <h1 className="movie-name">{movieDetail.name}</h1>
-          <h4 className="overview-paragraph">{movieDetail.overview}</h4>
-
-          <div className="little-detail-container">
-            <ul>
-              <li>
-                <h6 style={{textAlign: 'left'}} className="rating">IMDB score: {movieDetail.imdbScore}</h6>
-              </li>
-
-              <li>
-                <h6 style={{textAlign: 'left'}}>Realsed Date: {movieDetail.realesdDate}</h6>
-              </li>
-
-              <li>
-                <h6 style={{display: "inline"}}>Spoken Languages:</h6>
-                {movieDetail.spokenLang.map(lang => {
-                  return <h6 style={{display: "inline"}}> {lang.name}</h6>
-                })}
-              </li>
-
-              <li>
-                <h6 style={{display: "inline"}}>Genres:</h6>
-                {movieDetail.genres.map(genre => {
-                    return <h6 style={{display: "inline"}}> {genre.name}</h6>
-                })}
-              </li>
-            </ul>
-
-
-
-
-
-           
-            {/* <i>genres - depends on the movie some movies can have more than one genre </i> */}
-          </div>
-          
-        </div>
+      <Navbar />
+      <div className="image-container">
+        <a href={movieDetail.homepageURL}><img src={`https://image.tmdb.org/t/p/original${movieDetail.imgURL}`} alt="" className="movie-poster"/></a>
       </div>
+
+      <div className="movie-detail-container">
+        <h1 className="movie-name">{movieDetail.name}</h1>
+        <h5 className="movie-overview">{movieDetail.overview}</h5>
+        <div className="little-detail-container">
+          <div>
+            <h6 style={{display: "inline-block"}} className="imdb-score">IMDB score: {movieDetail.imdbScore}</h6>
+          </div>
+          <div>
+            <h6 style={{display: "inline-block"}} className="released-date">{movieDetail.realesdDate}</h6>
+          </div>
+          <div>
+            <h6 style={{display: "inline-block"}} className="spoken-languages">Spoken Languages: </h6>
+              {movieDetail.spokenLang.map((lang, index) => {
+                return <h6 style={{display: "inline"}}>{lang.name}{index === movieDetail.spokenLang.length-1? null: " /"}</h6>
+              })}
+          </div>
+            <h6 style={{display: "inline-block"}} className="genres">Genre{movieDetail.genres.length>1? 's: ':': '}</h6>
+            {movieDetail.genres.map((genre, index) => {
+                return <h6 style={{display: "inline"}}>{genre.name}{index === movieDetail.genres.length-1? null: " /"}</h6>
+              })}
+          <div>
+            <h6 style={{display: "inline-block"}} className="run-time">Run time: {movieDetail.runtime}</h6>
+          </div>
+        </div>
+
+        <div style={{display: 'flex', flexWrap: 'wrap'}}>
+          {movieDetail.production.map(productionInfo => {
+            return <CirledPic key={productionInfo.id} imgURL={productionInfo.logo_path} company={productionInfo.name}/>
+          })}
+        </div>
+
+      </div>
+
       <div className="comment-wrapper">
-      <h1>Comments</h1>
-      <h1>Comments</h1>
-      <h1>Comments</h1>
-      <h1>Comments</h1>
-      <h1>Comments</h1>
-      <h1>Comments</h1>
+        <h1>zcomment</h1>
+        <h1>zcomment</h1>
+        <h1>zcomment</h1>
+        <h1>zcomment</h1>
+        <h1>zcomment</h1>
+        
+        <h1>zcomment</h1>
+        <h1>zcomment</h1>
+        <h1>zcomment</h1>
+        <h1>zcomment</h1>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 import FormControl from 'react-bootstrap/FormControl'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PreviewCard from '../components/PreviewCard'
-
+import Navbar from '../components/Navbar'
 function SearchPage() {
 
   //API to request --> https://api.themoviedb.org/3/search/movie?api_key=f3e744226b13ef39764f0e35686bff5e&language=en-US&query=Batman&page=1&include_adult=false
@@ -37,6 +37,7 @@ function SearchPage() {
 
     return (
     <div className="SearchPage">
+      <Navbar />
       <div className="search-container">
           <div className="search-box">
             
