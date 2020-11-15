@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./PreviewCard.css";
 import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function PreviewCard(props) {
+  const [showFullOverview, setShowFullOverview] = useState(false);
+
   return (
     <div className="PreviewCard">
       <div className="previewCard-contanier">
@@ -23,25 +27,25 @@ function PreviewCard(props) {
         </Link>
 
         {props.isLiked ? (
-          <button
-            style={{ color: "red" }}
+          <Button
+            variant="outline-dark"
             className="Unlike-btn"
             onClick={() => {
               props.onUnliked(props.id);
             }}
           >
             Unlike
-          </button>
+          </Button>
         ) : (
-          <button
-            style={{ color: "green" }}
-            className="like-btn"
+          <Button
+            variant="outline-danger"
+            className="Like-btn"
             onClick={() => {
               props.onLiked(props.id);
             }}
           >
             Like
-          </button>
+          </Button>
         )}
 
         <h6>{props.overview}</h6>

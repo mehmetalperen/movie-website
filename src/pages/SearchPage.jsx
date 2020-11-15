@@ -15,7 +15,6 @@ function SearchPage() {
       `https://api.themoviedb.org/3/search/movie?api_key=f3e744226b13ef39764f0e35686bff5e&language=en-US&query=${userInput}&page=1&include_adult=false`
     );
     const itemsData = await data.json();
-    console.log(itemsData.results);
     setSearchResult(itemsData.results);
   }
   //Hold the Search result
@@ -32,11 +31,9 @@ function SearchPage() {
     } else {
       setSearchResult([]);
     }
-
-    console.log(userInput);
   };
 
-  //Handle keep liked movies
+  //Handle liked/Unliked movies/////////////////////////////////////////////////
   const [likedMovies, setLikedMovies] = useState([]);
 
   useEffect(() => {
@@ -64,6 +61,7 @@ function SearchPage() {
       return previousLikedMovies.filter((movieID) => movieID !== id);
     });
   };
+  //Handle keep liked movies/////////////////////////////////////////////////
 
   return (
     <div className="SearchPage">
