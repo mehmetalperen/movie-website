@@ -1,0 +1,16 @@
+.LikedMoviesPage {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 1fr;
+  grid-template-areas:
+    ". ."
+    "previewContainer";
+  min-height: 100vh;
+  padding: 0 10%;
+  grid-gap: 1rem;
+  word-wrap: break-word;
+}
+
+.liked-movies-preview-container {
+  grid-area: previewContainer;
+}

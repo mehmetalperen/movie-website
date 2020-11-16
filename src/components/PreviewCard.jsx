@@ -5,8 +5,6 @@ import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function PreviewCard(props) {
-  const [showFullOverview, setShowFullOverview] = useState(false);
-
   return (
     <div className="PreviewCard">
       <div className="previewCard-contanier">

@@ -1,32 +1,39 @@
-.Navbar{
-    background-color: #ff4444
-    ;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    height: 70px;
-    align-items: center;
+.Navbar {
+  background-color: #ff4444;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 70px;
+  align-items: center;
 }
 
 .Navbar h1 {
+  color: black;
+  font-weight: bold;
+  font-size: 3.5rem;
+  display: inline;
+}
+.Navbar h6 {
+  color: black;
+  display: inline;
+  position: absolute;
+  top: 30%;
+  right: 1%;
+}
+
+.rating-box {
+  text-align: right;
+  padding-right: 10%;
+}
+
+@media only screen and (max-width: 700px) {
+  .Navbar h1 {
     color: black;
     font-weight: bold;
-    font-size: 3.5rem;
-}
-
-.rating-box{
-    text-align: right;
-    padding-right: 10%;
-}
-
-
-@media only screen and (max-width: 500px) {
-    .Navbar h1 {
-        color: black;
-        font-weight: bold;
-        font-size: 2rem;
-    }
+    font-size: 2rem;
+  }
 }
