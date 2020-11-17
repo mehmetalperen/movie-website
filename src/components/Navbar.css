@@ -35,5 +35,20 @@
     color: black;
     font-weight: bold;
     font-size: 2rem;
+    padding-left: 10px;
+  }
+  .Navbar {
+    text-align: left;
+    justify-content: initial;
+  }
+
+  .Navbar h6 {
+    color: black;
+    display: inline;
+    position: absolute;
+    max-width: 55px;
+    word-wrap: break-word;
+    top: 30%;
+    right: 1%;
   }
 }

@@ -19,9 +19,7 @@ function Navbar() {
           <h1 className="navbar-title">Movie Finder Pro</h1>
         </Link>
         <Link style={{ textDecoration: "none" }} to="/likedmovies">
-          <h6 className="navbar-Liked-movie">
-            Liked Movies {likedMovieIds.length}
-          </h6>
+          <h6 className="navbar-Liked-movie">Liked Movies</h6>
         </Link>
       </div>
     </div>
